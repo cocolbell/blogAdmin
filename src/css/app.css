@@ -1,0 +1,21 @@
+@import '~antd/dist/antd.css';
+
+.clearfix :after {
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+
+#app {
+    background-color: #f8f8f8;
+    padding: 40px 0;
+    height: 949px;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1600px;
+    min-height: 700px;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);    
+}

@@ -1,0 +1,9 @@
+.stepHead {
+    height: 80px;
+    padding: 20px 100px;
+}
+.stepFoot {
+    height: 80px;
+    width: 250px;
+    margin: 0 auto;
+}
