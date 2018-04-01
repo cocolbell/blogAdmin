@@ -10,7 +10,7 @@ import Sidebar from './src/components/sidebar'
 import articList from './src/views/articList'
 import articEdit from './src/views/articEdit'
 
-import './src/css/app.css';
+import './src/css/app.scss';
 
 const element = (
     <BrowserRouter>        

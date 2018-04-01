@@ -1,0 +1,23 @@
+.articCont {
+    height: 700px;
+    font-size: 1.1rem;
+    .contLeft {
+        height: 100%;
+        width: 50%;
+        float: left;
+    }
+    textarea {
+        height: 100%;
+        outline: none;
+        resize: none;
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #e8e8e8;
+    }
+    .contRight {
+        margin-left: 50%;
+        height: 100%;
+        padding: 20px;
+        overflow: auto;
+    }
+}

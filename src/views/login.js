@@ -2,7 +2,7 @@ import React from 'react'
 import { Form,  Input, Button } from 'antd';
 const FormItem = Form.Item;
 
-import '../css/login.css'
+import '../css/login.scss'
 
 export default class Login extends React.Component {
     constructor(props) {

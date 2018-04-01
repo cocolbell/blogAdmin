@@ -2,14 +2,18 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import { Table, Divider } from 'antd';
+import _fetch from '../until/refetch'
+
+const myFetch = new _fetch();
+
+import { Table, Divider, Button } from 'antd';
 
 
 const columns = [
     {
         title: '序号',
-        key: 'id',
-        dataIndex: 'id'
+        key: 'articId',
+        dataIndex: 'articId'
     }, {
         title: '标题',
         key: 'title',
@@ -21,38 +25,51 @@ const columns = [
         dataIndex: 'action',
         render: (text) => (
             <span>
-                <a href="#">删除</a>
+                <Button type="danger">删除</Button>
                 <Divider type="vertical" />
-                <a href="#">编辑</a>
+                <Button type="primary">编辑</Button>
             </span>
         )
     }
 ];
 
-const data = [{
-    key: '1',
-    title: 'Web 缓存',
-    id: 32,
-}, {
-    key: '2',
-    title: '666',
-    id: 42,
-}, {
-    key: '3',
-    title: '一说简单的歌',
-    id: 32,
-}];
-
 
 export default class ArticList extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            data: []
+        }    
     }
+
+    tableDataInit (arr) {
+        arr.forEach((item, i) => {
+            item["key"] = i;
+        });
+        return arr;
+    }
+    componentWillMount () {
+        let _this = this;
+        myFetch.get("/api/article/getAllArticles")
+            .send()
+            .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+                data.result == 'success' && _this.setState({
+                    data :  _this.tableDataInit(data.message)
+                });
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    } 
     render () {
         return (
                 <Table
                     columns={columns}
-                    dataSource={data}
+                    dataSource={this.state.data}
                 />
         )
     }
