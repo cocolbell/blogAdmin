@@ -21,7 +21,7 @@ const element = (
     <Provider store={store}>
         <BrowserRouter>        
             <Switch>
-                <Authorize path="/login" component={Login}></Authorize>
+                <Route path="/login" component={Login}></Route>
                 <Route path="/" render={() => (
                     <div className="container">
                     <Layout style={{ padding: '25px 0', background: '#fff' }}>
@@ -30,8 +30,8 @@ const element = (
                         </Sider>
                         <Content style={{ padding: '0 30px' }}>
                                 <Switch>
-                                    <Route path='/index/articEdit' component={articEdit}></Route>
-                                    <Route path='/index/articList' component={articList}></Route>
+                                    <Authorize path='/index/articEdit' component={articEdit}></Authorize>
+                                    <Authorize path='/index/articList' component={articList}></Authorize>
                                 </Switch>
                         </Content>
                     </Layout>

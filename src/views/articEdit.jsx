@@ -33,6 +33,9 @@ export default class ArticEdit extends React.Component {
         this.tagsChange = this.tagsChange.bind(this);
         this.contentChange = this.contentChange.bind(this);
     }
+    componentWillMount () {
+        console.log("渲染没有？")
+    } 
     stepNext () {
         this.setState({
             current : ++this.state.current

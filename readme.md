@@ -2,7 +2,7 @@
 > 花了两天时间学习React搭建的博客后台管理系统，由于春招略忙，随缘更新，然后搭配之前写的Vue博客页面和NodeJS后台一起上线
 
 ### 技术栈
-React + React-router + 原生fetch + Ant UI
+React + React-router + Redux + 原生fetch + Ant UI
 
 ## 设计目标
 ### 功能目标
@@ -12,9 +12,9 @@ React + React-router + 原生fetch + Ant UI
 - [ ] 性能监控
 - [ ] 标签管理
 ### 技术目标
-- [ ] token登录状态保持
+- [x] 利用Redux实现token的管理分发
+- [x] 利用无状态组件拦截路由做可复用的登录验证
 - [ ] 路由懒加载
-- [ ] redux，看情况使用，暂时反向数据流还可以满足开发
 
 ## 小产物
 - 由于fetch是底层API，自己顺便封装了一个fetch的API（基于ES6）

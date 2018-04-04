@@ -2,13 +2,16 @@ import React from 'react'
 import { Form,  Input, Button } from 'antd'
 const FormItem = Form.Item;
 
+import { connect } from 'react-redux'
+import { updateToken } from '../actions/token'
+
 const myFetch = new _fetch();
 
 import '../css/login.scss'
 
-export default class Login extends React.Component {
+class Login extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             username : "",
             password : ""
@@ -37,7 +40,8 @@ export default class Login extends React.Component {
             .sendJson(data)
             .then(data => {
                 if (data.result == 'success') {
-                    _this.props.history.push('/index');
+                    _this.props.history.push('/');
+                    _this.props.update_token(data.message)                    
                 }
             }).catch(err => {
 
@@ -70,3 +74,14 @@ export default class Login extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+    isLogin: state.isLogin,
+    token: state.token
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    update_token: (data) => dispatch(updateToken(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
