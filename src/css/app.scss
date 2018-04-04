@@ -1,5 +1,8 @@
 @import '~antd/dist/antd.css';
 
+body {
+    position: relative;
+}
 .clearfix :after {
     content:".";
     display:block;
@@ -9,8 +12,8 @@
 }
 
 #app {
-    background-color: #f8f8f8;
     padding: 40px 0;
+    background-color: #f8f8f8;
     font-size: 14px;
 }
 .container {

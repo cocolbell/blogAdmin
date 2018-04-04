@@ -11,6 +11,9 @@ class FetchUtil {
             method: this.method,
             headers: this.headers,
             body: body
+        }).then(res => {
+             if (res.ok) return res.json();
+             else throw '网络请求出错'
         });
     }
 
@@ -32,6 +35,9 @@ class FetchUtil {
             return fetch(this.url, {
                 method: this.method,
                 headers: this.headers
+            }).then(res => {
+                if (res.ok) return res.json();
+                else throw '网络请求出错'
             })
         }
     }
@@ -47,5 +53,4 @@ class FetchUtil {
     }
 }
 
-
-export default FetchUtil
+window._fetch = FetchUtil;

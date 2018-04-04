@@ -2,8 +2,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import _fetch from '../until/refetch'
-
 const myFetch = new _fetch();
 
 import { Table, Divider, Button } from 'antd';
@@ -39,7 +37,7 @@ export default class ArticList extends React.Component {
         super(props)
         this.state = {
             data: []
-        }    
+        }
     }
 
     tableDataInit (arr) {
@@ -52,11 +50,7 @@ export default class ArticList extends React.Component {
         let _this = this;
         myFetch.get("/api/article/getAllArticles")
             .send()
-            .then(res => {
-                return res.json()
-            })
             .then(data => {
-                console.log(data)
                 data.result == 'success' && _this.setState({
                     data :  _this.tableDataInit(data.message)
                 });

@@ -4,7 +4,7 @@ var webpack = require('webpack')
 module.exports = {
     entry: [
         'react-hot-loader/patch',
-        './app.js'
+        './app.jsx'
     ],
     output: {
         path: path.resolve(__dirname, "./dist"),
@@ -13,7 +13,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/, 
+                test: /\.(js|jsx)$/, 
                 exclude: /node_modules/, 
                 loader:  'babel-loader?presets[]=react',
                 options: {

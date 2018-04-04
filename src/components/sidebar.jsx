@@ -19,8 +19,8 @@ export default class Sidebar extends React.Component {
                     style={{ height: '100%' }}
                 >
                     <SubMenu key="sub1" title={<span><Icon type="mail" /><span>文章管理</span></span>}>
-                        <Menu.Item key="1"><NavLink to="/articEdit">文章编辑</NavLink></Menu.Item>
-                        <Menu.Item key="2"><NavLink to="/articList">文章管理</NavLink></Menu.Item>
+                        <Menu.Item key="1"><NavLink to="/index/articEdit">文章编辑</NavLink></Menu.Item>
+                        <Menu.Item key="2"><NavLink to="/index/articList">文章管理</NavLink></Menu.Item>
                     </SubMenu>
                     <Menu.Item key="3">评论管理</Menu.Item>
                     <Menu.Item key="4">标签管理</Menu.Item>

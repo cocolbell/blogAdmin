@@ -1,6 +1,8 @@
 import React from 'react'
-import { Form,  Input, Button } from 'antd';
+import { Form,  Input, Button } from 'antd'
 const FormItem = Form.Item;
+
+const myFetch = new _fetch();
 
 import '../css/login.scss'
 
@@ -26,28 +28,20 @@ export default class Login extends React.Component {
     }
 
     fetchLogin (e) {
+        const _this = this;
         let data = {
             name : this.state.username,
             password : this.state.password
         }
-        data = JSON.stringify(data);
-        fetch('/api/login',{
-            method: 'POST',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', },
-            body: data
-        }).then(res =>{
-                console.log(res.json())
-                if(res.status == 200 && res.body.result == 'success'){
-                    
-                    message.success('登录成功', 10);
+        myFetch.post('/api/login')
+            .sendJson(data)
+            .then(data => {
+                if (data.result == 'success') {
+                    _this.props.history.push('/index');
                 }
-                else {
-                    console.log(res.body.reason);
-                }
-            }
-        ).catch(err =>{
-            console.log("Fetch错误:" + err);
-        });
+            }).catch(err => {
+
+            })
         e.stopPropagation();
     }
 

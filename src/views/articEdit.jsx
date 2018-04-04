@@ -1,13 +1,14 @@
 'use strict'
 import React from 'react';
 import { render } from 'react-dom';
+
 import marked from 'marked'
 
 import { Steps, Button, message } from 'antd';
 const Step = Steps.Step;
 
-import ArticInfo from '../components/articInfo'
-import ArticCont from '../components/articCont'
+import ArticInfo from '../components/articInfo.jsx'
+import ArticCont from '../components/articCont.jsx'
 
 import '../css/articEdit.scss'
 
@@ -18,7 +19,7 @@ export default class ArticEdit extends React.Component {
         this.state = {
             current: 0,
             info: {
-                title: "666",
+                title: "",
                 contentPrev: "",
                 tags: []
             },
